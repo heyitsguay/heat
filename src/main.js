@@ -2,10 +2,19 @@
  * Created by Matt Guay on 12/8/15.
  */
 
+// WebGL context.
+var gl;
+
+// Sketch Framework.
+var framework;
+
 /**
- * Runs at program initialization.
+ * Use jQuery to set up the sketch once the DOM is loaded.
  */
-function startup() {
-    // Pass the 'true' parameter to indicate this is the first start of the app.
-    restart(true);
-}
+$(document).ready(function() {
+    // Create the Framework.
+    framework = new Framework();
+    // Initialize the Framework.
+    framework.restart();
+});
+

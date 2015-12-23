@@ -1,3 +1,6 @@
+# Don't sync WebStorm .idea folder.
 .idea
+# Don't sync vim/gedit backup files.
 *~
-*.bat
+# Don't sync gitpush.sh
+gitpush.sh
