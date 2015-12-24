@@ -14,8 +14,8 @@ uniform float u_time;
 // Sampler for the canvas heat texture.
 uniform sampler2D s_heat;
 
-// @3 - scaled heat range, used for mapping heat values from [0,1] to [-heatRange, heatRange]. Filled in before compilation.
-const float hoffset = @3;
+// HEATSCALE - scaled heat range, used for mapping heat values from [-0.5,0.5] to [-heatRange, heatRange]. Filled in before compilation.
+const float hrescale = HEATRESCALE;
 // Heat magnitude thresholds used to control visualization.
 const float hthresh1 = 50.;
 const float hthresh2 = 3000.;
@@ -35,7 +35,7 @@ void main() {
 	// This fragment's heat texture value, scaled to range [-0.5, 0.5].
 	float tex_heat = texture2D(s_heat, gl_FragCoord.xy * u_dst).r - 0.5;
 	// Scaled heat magnitude.
-	float heat = abs(hoffset * tex_heat);
+	float heat = abs(hrescale * tex_heat);
 
 	// Gate variables used to control heat visualization.
 	// 1. if tex_heat is negative, 0 otherwise.

@@ -12,10 +12,11 @@ Framework.prototype.restart = function() {
         this.canvas = $('#canvas');
 
         // Set I/O handle functions.
-        $(document).keydown(this.handleKeydown); // key down
-        $(document).keyup(this.handleKeyup); // key up
+        $(document).keydown(this.handleKeyDown); // key down
+        $(document).keyup(this.handleKeyUp); // key up
         $(window).resize(this.restart); // window resize
         this.canvas.click(this.handleClick); // canvas mouse click
+        $('#settings').change(this.handleQualityChange);
 
         // Set FPS write update interval
         setInterval(this.writeFPS, 500);
@@ -128,6 +129,10 @@ Framework.prototype.initTime = function() {
     this.timeLast = this.time0;
     // Time at current frame.
     this.timeNow = this.time0;
+    // Time between now and the last time initTime() was called.
+    this.timeElapsedTotal = 0;
+    // Time elapsed between this frame and the previous frame.
+    this.timeElapsedFrame = 0;
 };
 
 /**

@@ -23,8 +23,11 @@ function Framework() {
     // Current frame's time.
     this.timeNow = null;
 
+    // Time elapsed since the previous frame.
+    this.timeElapsedFrame = null;
+
     // Time elapsed since the App's start.
-    this.dtime = null;
+    this.timeElapsedTotal = null;
 
     // Framerate estimate.
     this.fps = 0;
@@ -99,3 +102,29 @@ function Framework() {
     // List of PongBuffers used in this sketch.
     this.pongBuffers = {};
 }
+
+/**
+ * Update the variables that track the time since the sketch was last restarted.
+ */
+Framework.prototype.updateTime = function() {
+    this.timeLast = this.timeNow;
+    this.timeNow = new Date().getTime();
+    this.timeElapsedFrame = this.timeNow - this.timeLast;
+    this.timeElapsedTotal = this.timeNow - this.time0;
+};
+
+/**
+ * Update the sketch's FPS estimate.
+ */
+Framework.prototype.updateFPS = function() {
+    if(this.timeElapsedFrame > 0) {
+        this.fps += (1000. / this.timeElapsedFrame - this.fps) / this.fpsFilter;
+    }
+};
+
+/**
+ * Write the current FPS estimate to the appropriate DOM element.
+ */
+Framework.prototype.writeFPS = function() {
+    $('#fpscounter').html(framework.fps.toFixed(1) + " fps");
+};

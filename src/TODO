@@ -1,9 +1,12 @@
-Next: Keep writing resize_canvas, add a Framework()?
+Next: Keep adding to gl-framework.
 
-- (12/23/15) add ShaderPrograms to gl-framework.
-- (12/23/15) add FloatBuffers and PongBuffers to gl-framework.
-- (12/23/15) add AttributeArrays to gl-framework.
+- (12/23/15) ShaderPrograms reference maxHeat - fix this once the World class is implemented.
+- (12/23/15) write the World class.
 - (12/23/15) write the App class.
-- (12/23/15) write framework-handle.js (Framework I/O handling).
+
+x (12/23/15) add ShaderPrograms to gl-framework. DONE 12/23/15
+x (12/23/15) add FloatBuffers and PongBuffers to gl-framework. DONE 12/23/15
+x (12/23/15) add AttributeArrays to gl-framework. DONE 12/23/15
+x (12/23/15) write framework-handle.js (Framework I/O handling). DONE 12/23/15
 x (12/08/15) write the startup() and restart() functions. DONE 12/20/15
 x (12/08/15) write a T0D0 file. Done 12/08/15
