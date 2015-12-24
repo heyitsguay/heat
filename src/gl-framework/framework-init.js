@@ -16,7 +16,7 @@ Framework.prototype.restart = function() {
         $(document).keyup(this.handleKeyUp); // key up
         $(window).resize(this.restart); // window resize
         this.canvas.click(this.handleClick); // canvas mouse click
-        $('#settings').change(this.handleQualityChange);
+        $('#settings').change(this.handleQualityChange); // change to the settings panel
 
         // Set FPS write update interval
         setInterval(this.writeFPS, 500);
@@ -28,19 +28,15 @@ Framework.prototype.restart = function() {
     // Initialize the necessary WebGL elements.
     this.initGL();
 
-    // Initialize the App.
-    this.initApp();
-
     // Initialize the tracking of time elapsed since the Framework's last restart.
     this.initTime();
 
-    // Finish initialization.
-    if(!this.initialized) {
-        // Framework is now initialized.
-        this.initialized = true;
+    // Initialize the App.
+    this.initApp();
 
-        // Primary function called every frame.
-        this.tick();
+    // The Framework is now initialized.
+    if(!this.initialized) {
+        this.initialized = true;
     }
 };
 
@@ -148,7 +144,7 @@ Framework.prototype.initGL = function() {
     var ext = gl.getExtension('OES_texture_float');
 
     // Record whether the float texture extension is available.
-    this.floatTextures = (ext != null)
+    this.floatTextures = (ext != null);
 
     // Disable depth testing.
     gl.disable(gl.DEPTH_TEST);

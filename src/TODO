@@ -1,4 +1,4 @@
-Next: Keep adding to gl-framework.
+Next: Keep writing the App class.
 
 - (12/23/15) ShaderPrograms reference maxHeat - fix this once the World class is implemented.
 - (12/23/15) write the World class.
